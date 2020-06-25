@@ -9,7 +9,9 @@ class LeaderBoard extends Component {
 	}
 
 	render() {
-		return <div>Hello</div>;
+		const { contributors, loading } = this.props;
+
+		return <div>Helo</div>;
 	}
 }
 

@@ -3,7 +3,7 @@ import LeaderBoard from './components/LeaderBoard';
 export default class App extends Component {
 	render() {
 		return (
-			<div class='App'>
+			<div className='App'>
 				<LeaderBoard />
 			</div>
 		);
