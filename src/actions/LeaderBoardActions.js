@@ -34,16 +34,19 @@ export default (state = initialState, action) => {
 };
 
 //actions
-export const getContributors = () => (dispatch) => {
-	ApiClient()
-		.get('/leaderboard')
-		.then((res) =>
-			dispatch({ type: VIEW_ALL_CONTRIBUTORS, payload: res.data })
-		)
-		.catch((err) =>
-			dispatch({
-				type: SOME_ERROR_OCCURRED,
-				payload: 'Please Try Again later',
-			})
-		);
+export const getContributors = () => async (dispatch) => {
+	try {
+		const res = await ApiClient().get('/leaderboard/');
+		console.log(res);
+		dispatch({
+			type: VIEW_ALL_CONTRIBUTORS,
+			payload: res.data,
+		});
+	} catch (error) {
+		console.log(error);
+		dispatch({
+			type: SOME_ERROR_OCCURRED,
+			payload: error,
+		});
+	}
 };
