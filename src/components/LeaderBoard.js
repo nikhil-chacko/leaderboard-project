@@ -11,7 +11,13 @@ class LeaderBoard extends Component {
 	render() {
 		const { contributors, loading } = this.props;
 
-		return <div>Helo</div>;
+		return (
+			<div>
+				{!loading &&
+					contributors.length > 0 &&
+					contributors.map((user) => <p>{user.username}</p>)}
+			</div>
+		);
 	}
 }
 
